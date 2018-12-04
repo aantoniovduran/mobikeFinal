@@ -1,0 +1,188 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>mobike</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
+<link rel="stylesheet" href="{% static 'css/formulario.css' %}">
+<link rel="stylesheet" href="{% static 'css/font.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/png" href="{% static 'imagenes/bicicleta.ico' %}" />
+</head>
+<body>
+
+<!-- MENU -->
+
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'pagina_principal' %}" class="active">INICIO</a>
+  <a href="{% url 'pagina_login' %}">INICIAR SESION</a>
+  <a href="{% url 'pagina_estacionamiento' %}">ESTACIONAMIENTOS</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+<!-- FIN MENU -->
+
+<!-- Header -->
+<div class="banner">
+	    <img src="{% static 'imagenes/hero.jpg' %}" alt="" class="responsive">
+	    <div class="contenedor">
+	        <h2 class="banner_titulo">Let's Mobike!</h2>
+	        <p class="banner_txt">La solución perfecta de primera y última milla</p>
+	    </div>
+</div>
+<!-- CONTENIDO -->
+<div class="titulo">Formulario de Registro</div>
+<div class="container">
+  <form action="" method="POST">{% csrf_token %}
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Primer nombre</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="pnombre" name="primernombre" placeholder="Primer Nombre..." required autofocus>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Segundo Nombre</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="snombre" name="segundonombre" placeholder="Segundo Nombre..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Apellido Paterno</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="papellido" name="apellidopaterno" placeholder="Apellido Paterno..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Apellido Materno</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="sapellido" name="apellidomaterno" placeholder="Apellido Materno..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Rut</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="rut" name="rut" placeholder="Digite Rut..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Número Telefono</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="telefono" name="telefono" placeholder="Digite Número Telefono..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="email" name="email" placeholder="Ingrese su email..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Dirección</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="direccion" name="direccion" placeholder="Dirección..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Comuna de Trabajo</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="providencia">Providencia</option>
+          <option value="lareina">La Reina</option>
+          <option value="nuñoa">Nuñoa</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Nombre Usuario</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="nombreusuario" name="nombreusuario" placeholder="Nombre usuario para su cuenta..." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Contraseña</label>
+      </div>
+      <div class="col-75">
+        <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña..." required>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="country">Banco</label>
+      </div>
+      <div class="col-75">
+        <select id="banco" name="banco">
+          <option value="bancochile">Banco de Chile</option>
+          <option value="scotiabank">Scotiabank</option>
+          <option value="bancosantander">Santander</option>
+          <option value="bancobci">BCI</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Numero Tarjeta Bancaria</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="numerotarjeta" name="numerotarjeta" placeholder="Numero tarjeta...." required>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Registrar">
+    </div>
+    <div class="row">
+        <input type="reset" value="Limpiar">
+    </div>
+  </form>
+</div>
+
+
+<div class="footer">
+    <div class="social">
+	        <a href="https://www.facebook.com/mobikecl" class="icon-facebook"></a>
+	        <a href="https://www.instagram.com/mobikecl/" class="icon-instagram"></a>
+	        <a href="https://www.linkedin.com/company/mobike" class="icon-linkedin"></a>
+	        <a href="https://twitter.com/MobikeCL" class="icon-twitter"></a>
+	        <a href="https://www.youtube.com/channel/UCXi2VQIAMWMSD3mk4a7DN4g" class="icon-youtube"></a>
+	    </div>
+	    <p class="copy">&copy; Prototipo Mobike</p>
+	    <p>André Antonio Vásquez Duran</p>
+</div>
+</body>
+</html>

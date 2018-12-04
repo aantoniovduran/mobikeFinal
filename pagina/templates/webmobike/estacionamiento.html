@@ -1,0 +1,127 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>mobike</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
+<link rel="stylesheet" href="{% static 'css/font.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery.gmaps.css' %}">
+<link rel="stylesheet" href="{% static 'css/estacionamiento.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/png" href="{% static 'imagenes/bicicleta.ico' %}" />
+<script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="{% static 'js/jquery.gmaps.js' %}"></script>
+<style>
+.gmaps {
+height:500px;
+width: 100%;
+}
+</style>
+
+</head>
+<body>
+
+<!-- MENU -->
+
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'pagina_principal' %}" class="active">INICIO</a>
+  <a href="{% url 'pagina_login' %}">INICIAR SESION</a>
+  <a href="{% url 'pagina_estacionamiento' %}">ESTACIONAMIENTOS</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+
+<!-- FIN MENU -->
+
+<!-- Header -->
+<div class="banner">
+	    <img src="{% static 'imagenes/hero.jpg' %}" alt="" class="responsive">
+	    <div class="contenedor">
+	        <h2 class="banner_titulo">Let's Mobike!</h2>
+	        <p class="banner_txt">La solución perfecta de primera y última milla</p>
+	    </div>
+</div>
+
+<!-- MAPA -->
+
+<div data-key="AIzaSyCqlVRwZkbof9cg1IQSkv_fc3vnUfe0hsc"
+data-control-zoom="true"
+data-control-type="true"
+data-control-scale="true"
+data-control-streetview="true"
+data-control-rotate="true"
+data-event-mousewheel="true"
+ 
+data-zoom="14" role="map" class="gmaps">
+ 
+<!-- items de ubicaciones -->
+ 
+<div
+data-id="1"
+data-lat="-33.444128"
+data-lng="-70.559524"
+
+class="marker">
+<div class="map-card">
+<h1>ESTACIONAMIENTO</h1>
+<h3>Sta Rita 1153</h3>
+<img src="{% static 'imagenes/mobike.jpg' %}" alt="">
+<a href="{% url 'pagina_bicicleta' %}"><input type="button" value="ver bicicletas"></a>
+</div>
+</div>
+
+<div
+data-id="2"
+data-lat="-33.451313"
+data-lng="-70.553112"
+class="marker">
+<div class="map-card">
+<h1>Estacionamiento</h1>
+<h3>Av. Alcalde Fernando Castillo Velasco</h3>
+<img src="{% static 'imagenes/mobike.jpg' %}" alt="">
+<a href="{% url 'pagina_bicicleta' %}"><input type="button" value="ver bicicletas"></a>
+</div>
+</div>
+ 
+
+<!-- fin datos de ubicación -->
+ 
+</div>
+<!-- FIN MAPA -->
+
+<!-- Footer -->
+<div class="footer">
+    <div class="social">
+	        <a href="https://www.facebook.com/mobikecl" class="icon-facebook"></a>
+	        <a href="https://www.instagram.com/mobikecl/" class="icon-instagram"></a>
+	        <a href="https://www.linkedin.com/company/mobike" class="icon-linkedin"></a>
+	        <a href="https://twitter.com/MobikeCL" class="icon-twitter"></a>
+	        <a href="https://www.youtube.com/channel/UCXi2VQIAMWMSD3mk4a7DN4g" class="icon-youtube"></a>
+	    </div>
+	    <p class="copy">&copy; Prototipo Mobike</p>
+	    <p>André Antonio Vásquez Duran</p>
+</div>
+    <script>
+        $(document).ready(function () {
+        $('.gmaps').gmaps();
+        });
+    </script>
+
+</body>
+</html>

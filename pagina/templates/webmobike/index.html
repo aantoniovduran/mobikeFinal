@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>mobike</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
+<link rel="stylesheet" href="{% static 'css/font.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/png" href="{% static 'imagenes/bicicleta.ico' %}" />
+</head>
+<body>
+
+<!-- MENU -->
+
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'pagina_principal' %}" class="active">INICIO</a>
+  <a href="{% url 'pagina_login' %}">INICIAR SESION</a>
+  <a href="{% url 'pagina_estacionamiento' %}">ESTACIONAMIENTOS</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+
+<!-- FIN MENU -->
+
+<!-- Header -->
+<div class="banner">
+	    <img src="{% static 'imagenes/hero.jpg' %}" alt="" class="responsive">
+	    <div class="contenedor">
+	        <h2 class="banner_titulo">Let's Mobike!</h2>
+	        <p class="banner_txt">La solución perfecta de primera y última milla</p>
+	    </div>
+</div>
+<!-- CONTENIDO -->
+  <div class="container">
+  <img src="{% static 'imagenes/home__feature_1_image.jpg' %}" alt="">
+  <div class="descripcion">
+      <h3 class="titulo">!Mobike te acerca a tu lugar de destino!</h3>
+      <div class="texto">Miles de bicicletas disponibles a tu alrededor. ¡Finaliza el recorrido en cualquier estacionamiento para bicicletas que esté cerca de tu lugar de destino!</div>
+  </div> 
+</div>   
+
+<div class="container">
+  <img src="{% static 'imagenes/home__feature_2_image.jpg' %}" alt="">
+  <div class="descripcion">
+      <h3 class="titulo">Una opción sencilla y práctica</h3>
+      <div class="texto">solo escanea el código QR que figura en la bicicleta y comienza tu recorrido. ¡Cierra el candado una vez que dejes la bicicleta en el área de estacionamiento y listo!</div>
+  </div> 
+</div> 
+
+<div class="container">
+  <img src="{% static 'imagenes/home__feature_3_image.jpg' %}" alt="">
+  <div class="descripcion">
+      <h3 class="titulo">MobikeMovement</h3>
+      <div class="texto">Ya no tendrás que acarrear tu propia bicicleta a todos lados. ¡Simplemente usa Mobike para llegar a donde quieras!</div>
+  </div> 
+</div> 
+
+<div class="container">
+  <img src="{% static 'imagenes/home__feature_4_image.png' %}" alt="">
+  <div class="descripcion">
+      <h3 class="titulo">Medio de pago sencillo y seguro</h3>
+      <div class="texto">¡Desde la aplicación, recarga tu cartera en cualquier momento!</div>
+  </div> 
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="social">
+	        <a href="https://www.facebook.com/mobikecl" class="icon-facebook"></a>
+	        <a href="https://www.instagram.com/mobikecl/" class="icon-instagram"></a>
+	        <a href="https://www.linkedin.com/company/mobike" class="icon-linkedin"></a>
+	        <a href="https://twitter.com/MobikeCL" class="icon-twitter"></a>
+	        <a href="https://www.youtube.com/channel/UCXi2VQIAMWMSD3mk4a7DN4g" class="icon-youtube"></a>
+	    </div>
+	    <p class="copy">&copy; Prototipo Mobike</p>
+	    <h4>André Antonio Vásquez Duran</h4>
+</div>
+
+</body>
+</html>
